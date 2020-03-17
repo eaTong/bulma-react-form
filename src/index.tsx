@@ -2,6 +2,6 @@
  * @class ExampleComponent
  */
 
-import Form from './components/Form';
+import formWrapper from './utils/formWrapper';
 
-export default {Form};
+export default {formWrapper};
