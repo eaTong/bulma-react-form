@@ -3,5 +3,7 @@
  */
 
 import formWrapper from './utils/formWrapper';
+import FormItem from './components/FormItem';
+import Input from './components/Input';
 
-export default {formWrapper};
+export {formWrapper, FormItem, Input};
