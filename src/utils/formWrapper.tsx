@@ -41,7 +41,8 @@ function formWrapper<T>(WrappedComponent: React.ComponentType<FormProps>) {
       this.setState({errorFields})
     };
 
-    onValueChange = (event: any, field: string, options: FieldOption) => {
+    onValueChange = (event: any, field: string, options: FieldOption = {}) => {
+      options = options || {};
       const value = (event && event.target) ? event.target[options.valuePropName || 'value'] : event;
       const {form} = this.state;
       form[field] = value;
@@ -50,7 +51,7 @@ function formWrapper<T>(WrappedComponent: React.ComponentType<FormProps>) {
 
     setFieldsValue = (form: any, callback?: Function) => this.setState({form: {...this.state.form, ...form}}, () => callback && callback());
 
-    getFieldDecorator = (field: string, options: FieldOption) => {
+    getFieldDecorator = (field: string, options: FieldOption = {}) => {
       const {form, requiredFields} = this.state;
       return (children: ReactElement) => {
         const onChange = (event: any) => this.onValueChange(event, field, options);

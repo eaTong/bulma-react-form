@@ -1,14 +1,24 @@
 import React, {Component} from 'react'
 
-import {formWrapper, FormItem , Input} from 'bulma-react-form'
+import {formWrapper, FormItem, Input} from 'bulma-react-form'
 
 class App extends Component {
   render() {
     const {form} = this.props;
     return (
       <div className='container'>
-        <FormItem label='asdfasdf' field={'test'}>
-          {form.getFieldDecorator('test', {rules: [{required: true, message: 'test message'}]})(
+        <FormItem label='input required' field={'test'}>
+          {form.getFieldDecorator('test', {
+            rules: [{
+              required: true,
+              message: 'This component is required , you can define anything here'
+            }]
+          })(
+            <Input placeholder={'asdfsdf'}/>
+          )}
+        </FormItem>
+        <FormItem label='input not required' field={'test2'}>
+          {form.getFieldDecorator('test2')(
             <Input placeholder={'asdfsdf'}/>
           )}
         </FormItem>
